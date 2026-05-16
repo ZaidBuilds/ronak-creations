@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Fancy Stationery Set",
+    "description": "Premium quality stationery sets with unique designs — perfect for gifting or personal use.",
+    "price": "₹199",
+    "category": "stationery",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 2,
+    "name": "Customized Gift Hamper",
+    "description": "Personalized gift hampers for any occasion — birthdays, anniversaries, festivals, and more.",
+    "price": "₹499+",
+    "category": "hampers",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 3,
+    "name": "Designer Keychains",
+    "description": "Trendy and attractive keychains in multiple designs. Perfect for gifting or personal use.",
+    "price": "₹99",
+    "category": "accessories",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 4,
+    "name": "Dual Lid Sipper Bottle",
+    "description": "Stainless steel dual lid sipper — keeps drinks hot or cold for 24/7. Eye-catching shades available.",
+    "price": "₹349",
+    "category": "bottles",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 5,
+    "name": "Personalized Notebook",
+    "description": "Custom name printed notebooks. Great for students, professionals, or as return gifts.",
+    "price": "₹149",
+    "category": "stationery",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 6,
+    "name": "Gift Combo Pack",
+    "description": "Curated combo packs with assorted gift items — ideal for surprise gifting.",
+    "price": "₹699",
+    "category": "hampers",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 7,
+    "name": "Customized Mug",
+    "description": "Personalized ceramic mugs with text, photo, or custom design. Great for corporate gifting.",
+    "price": "₹249",
+    "category": "custom",
+    "image": "/images/placeholder.svg"
+  },
+  {
+    "id": 8,
+    "name": "Trendy Pen Set",
+    "description": "Stylish pen sets in premium packaging. Perfect return gift option for events.",
+    "price": "₹179",
+    "category": "stationery",
+    "image": "/images/placeholder.svg"
+  }
+]
