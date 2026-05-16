@@ -3,64 +3,96 @@
     "id": 1,
     "name": "Fancy Stationery Set",
     "description": "Premium quality stationery sets with unique designs — perfect for gifting or personal use.",
-    "price": "₹199",
+    "price": "\u20b9199",
     "category": "stationery",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=400&h=400&fit=crop"
   },
   {
     "id": 2,
     "name": "Customized Gift Hamper",
     "description": "Personalized gift hampers for any occasion — birthdays, anniversaries, festivals, and more.",
-    "price": "₹499+",
+    "price": "\u20b9499+",
     "category": "hampers",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&h=400&fit=crop"
   },
   {
     "id": 3,
     "name": "Designer Keychains",
-    "description": "Trendy and attractive keychains in multiple designs. Perfect for gifting or personal use.",
-    "price": "₹99",
+    "description": "Trendy and attractive keychains in multiple designs with premium finishes.",
+    "price": "\u20b999",
     "category": "accessories",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop"
   },
   {
     "id": 4,
     "name": "Dual Lid Sipper Bottle",
-    "description": "Stainless steel dual lid sipper — keeps drinks hot or cold for 24/7. Eye-catching shades available.",
-    "price": "₹349",
+    "description": "Stainless steel dual lid sipper — keeps drinks hot or cold for 24 hours. Eye-catching shades.",
+    "price": "\u20b9349",
     "category": "bottles",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop"
   },
   {
     "id": 5,
     "name": "Personalized Notebook",
-    "description": "Custom name printed notebooks. Great for students, professionals, or as return gifts.",
-    "price": "₹149",
+    "description": "Custom name printed notebooks with leather texture cover. Great for students and professionals.",
+    "price": "\u20b9149",
     "category": "stationery",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&h=400&fit=crop"
   },
   {
     "id": 6,
     "name": "Gift Combo Pack",
-    "description": "Curated combo packs with assorted gift items — ideal for surprise gifting.",
-    "price": "₹699",
+    "description": "Curated combo packs with assorted gift items — ideal for surprise gifting on any occasion.",
+    "price": "\u20b9699",
     "category": "hampers",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1513207565459-d7f36bfa1222?w=400&h=400&fit=crop"
   },
   {
     "id": 7,
     "name": "Customized Mug",
-    "description": "Personalized ceramic mugs with text, photo, or custom design. Great for corporate gifting.",
-    "price": "₹249",
+    "description": "Personalized ceramic mugs with text, photo, or custom design. Microwave & dishwasher safe.",
+    "price": "\u20b9249",
     "category": "custom",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop"
   },
   {
     "id": 8,
-    "name": "Trendy Pen Set",
-    "description": "Stylish pen sets in premium packaging. Perfect return gift option for events.",
-    "price": "₹179",
+    "name": "Premium Pen Set",
+    "description": "Stylish pen sets in premium velvet packaging. Perfect return gift option for corporate events.",
+    "price": "\u20b9179",
     "category": "stationery",
-    "image": "/images/placeholder.svg"
+    "image": "https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?w=400&h=400&fit=crop"
+  },
+  {
+    "id": 9,
+    "name": "Photo Frame Set",
+    "description": "Elegant wooden photo frame set with customized engraving option. Perfect for memories.",
+    "price": "\u20b9399",
+    "category": "custom",
+    "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop"
+  },
+  {
+    "id": 10,
+    "name": "Handcrafted Greeting Card",
+    "description": "Handmade greeting cards with premium paper, ribbon, and dried flower embellishments.",
+    "price": "\u20b979",
+    "category": "stationery",
+    "image": "https://images.unsplash.com/photo-1583939411023-1478310d9509?w=400&h=400&fit=crop"
+  },
+  {
+    "id": 11,
+    "name": "Travel Organizer Set",
+    "description": "Multi-compartment travel organizer for documents, toiletries & accessories. Compact design.",
+    "price": "\u20b9299",
+    "category": "accessories",
+    "image": "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=400&h=400&fit=crop"
+  },
+  {
+    "id": 12,
+    "name": "Designer Candle Set",
+    "description": "Soy wax scented candles in designer jars. Lavender, vanilla & sandalwood fragrances available.",
+    "price": "\u20b9349",
+    "category": "hampers",
+    "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=400&fit=crop"
   }
 ]

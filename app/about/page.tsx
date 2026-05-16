@@ -1,14 +1,12 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "About | Ronak Creations",
-  description: "Learn about Ronak Creations — a gift shop in Numaish Camp, Saharanpur offering fancy stationery, custom hampers, and more.",
-};
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import { motion } from "framer-motion";
 
 const offerings = [
   { label: "Fancy Stationery", desc: "Notebooks, pen sets, and more in trendy designs" },
   { label: "Custom Gift Hampers", desc: "Personalized for birthdays, anniversaries, festivals, and corporate events" },
-  { label: "Designer Keychains & Accessories", desc: "Stylish and affordable" },
+  { label: "Designer Keychains & Accessories", desc: "Stylish and affordable for all ages" },
   { label: "Bottles & Sippers", desc: "Dual lid stainless steel bottles in eye-catching shades" },
   { label: "Personalized Items", desc: "Custom mugs, notebooks, and gifts with your name or design" },
 ];
@@ -20,49 +18,130 @@ const reasons = [
   "Wholesale and retail available",
 ];
 
+const timeline = [
+  { year: "2020", event: "Ronak Creations founded in Numaish Camp" },
+  { year: "2021", event: "Expanded to custom gift hampers" },
+  { year: "2023", event: "Launched personalized stationery line" },
+  { year: "2025", event: "500+ happy customers served" },
+];
+
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-bold text-foreground mb-6">About Ronak Creations</h1>
+    <div>
+      <section className="relative bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden py-20 md:py-28">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
-      <p className="text-lg text-muted leading-relaxed mb-8">
-        Ronak Creations is a gift shop based in <strong>Numaish Camp, Saharanpur</strong> — your go-to destination for
-        fancy stationery, customized gift hampers, trendy accessories, and unique gift items.
-      </p>
+        <div className="relative z-10 max-w-4xl mx-auto px-4">
+          <ScrollReveal>
+            <span className="text-accent-light text-sm font-semibold tracking-widest uppercase">About</span>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold mt-2 mb-6">Ronak Creations</h1>
+            <p className="text-lg text-white/80 leading-relaxed max-w-2xl">
+              A premium gift shop based in Numaish Camp, Saharanpur \u2014 your go-to destination for fancy stationery,
+              customized gift hampers, trendy accessories, and unique gift items.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
-      <div className="bg-white border border-border rounded-xl p-6 mb-6">
-        <h2 className="text-xl font-semibold mb-4">What We Offer</h2>
-        <ul className="space-y-3">
-          {offerings.map(({ label, desc }) => (
-            <li key={label} className="flex items-start gap-2 text-muted">
-              <span className="text-primary mt-1 shrink-0">&#10022;</span>
-              <span><strong>{label}</strong> &mdash; {desc}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <section className="max-w-4xl mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <ScrollReveal direction="left">
+            <div className="bg-white border border-border rounded-2xl p-8 h-full hover:shadow-lg transition-shadow">
+              <h2 className="font-serif text-2xl font-bold text-dark mb-6">What We Offer</h2>
+              <ul className="space-y-4">
+                {offerings.map(({ label, desc }) => (
+                  <motion.li
+                    key={label}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center text-primary text-xs shrink-0 mt-0.5">&#10003;</span>
+                    <div>
+                      <strong className="text-dark">{label}</strong>
+                      <p className="text-sm text-muted mt-0.5">{desc}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
 
-      <div className="bg-white border border-border rounded-xl p-6 mb-6">
-        <h2 className="text-xl font-semibold mb-4">Why Choose Us?</h2>
-        <ul className="space-y-3">
-          {reasons.map((r) => (
-            <li key={r} className="flex items-start gap-2 text-muted">
-              <span className="text-primary mt-1 shrink-0">&#10022;</span>
-              <span>{r}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+          <ScrollReveal direction="right">
+            <div className="bg-white border border-border rounded-2xl p-8 h-full hover:shadow-lg transition-shadow">
+              <h2 className="font-serif text-2xl font-bold text-dark mb-6">Why Choose Us?</h2>
+              <ul className="space-y-4">
+                {reasons.map((r, i) => (
+                  <motion.li
+                    key={r}
+                    initial={{ opacity: 0, x: 10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="w-6 h-6 bg-secondary/10 rounded-full flex items-center justify-center text-secondary text-xs shrink-0 mt-0.5">&#9733;</span>
+                    <span className="text-muted">{r}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+        </div>
 
-      <div className="bg-primary/5 border border-primary/10 rounded-xl p-6">
-        <h2 className="text-xl font-semibold mb-3">Visit Our Store</h2>
-        <p className="text-muted mb-2">
-          Shakti Nagar, Near Panchmukhi Hanuman Mandir
-          <br />
-          Numaish Camp, Saharanpur, Uttar Pradesh
-        </p>
-        <p className="text-muted">Or reach out to us on WhatsApp for inquiries and orders.</p>
-      </div>
+        <ScrollReveal>
+          <div className="mt-6 bg-white border border-border rounded-2xl p-8 hover:shadow-lg transition-shadow">
+            <h2 className="font-serif text-2xl font-bold text-dark mb-8">Our Journey</h2>
+            <div className="space-y-6 relative before:absolute before:left-[7px] before:top-2 before:h-[calc(100%-40px)] before:w-0.5 before:bg-border">
+              {timeline.map(({ year, event }, i) => (
+                <motion.div
+                  key={year}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="flex items-start gap-4 pl-0"
+                >
+                  <div className="w-4 h-4 rounded-full bg-primary border-2 border-white shadow shrink-0 mt-1 relative z-10" />
+                  <div>
+                    <span className="text-sm font-bold text-primary">{year}</span>
+                    <p className="text-sm text-muted mt-0.5">{event}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="mt-6 bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/10 rounded-2xl p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div>
+                <h2 className="font-serif text-2xl font-bold text-dark mb-3">Visit Our Store</h2>
+                <p className="text-muted leading-relaxed">
+                  Shakti Nagar, Near Panchmukhi Hanuman Mandir
+                  <br />
+                  Numaish Camp, Saharanpur, Uttar Pradesh
+                </p>
+                <p className="text-muted mt-3">Or reach out to us on WhatsApp for inquiries and orders.</p>
+              </div>
+              <div className="flex justify-start md:justify-end">
+                <a
+                  href="https://wa.me/917988174542"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+                  Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }

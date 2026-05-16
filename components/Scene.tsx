@@ -1,9 +1,9 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { Float, Environment } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Suspense } from "react";
-import GiftBox from "./GiftBox";
+import EnhancedScene from "./EnhancedScene";
 import SparkleParticles from "./SparkleParticles";
 
 export default function Scene() {
@@ -20,11 +20,8 @@ export default function Scene() {
           <directionalLight position={[-3, 2, -2]} intensity={0.8} color="#fbbf24" />
           <pointLight position={[0, -2, 1]} intensity={0.5} color="#a78bfa" />
 
-          <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.5}>
-            <GiftBox />
-          </Float>
-
-          <SparkleParticles count={80} />
+          <EnhancedScene />
+          <SparkleParticles count={100} />
 
           <Environment preset="sunset" />
         </Suspense>
