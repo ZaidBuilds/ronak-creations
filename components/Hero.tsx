@@ -69,7 +69,7 @@ export default function Hero() {
                 Customize a Gift
               </Link>
               <a
-                href="https://wa.me/917988174542"
+                href="https://wa.me/9368785399"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-green-500/80 text-white font-semibold rounded-xl border border-green-400/30 hover:bg-green-500 transition-all backdrop-blur-sm"

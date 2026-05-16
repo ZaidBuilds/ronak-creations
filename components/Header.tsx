@@ -45,7 +45,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href="https://wa.me/917988174542"
+            href="https://wa.me/9368785399"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-3 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-green-500/25 transition-all"
@@ -93,7 +93,7 @@ export default function Header() {
                 </motion.div>
               ))}
               <a
-                href="https://wa.me/917988174542"
+                href="https://wa.me/9368785399"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}

@@ -106,7 +106,7 @@ export default function CustomizePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/917988174542?text=Hi!%20I%20want%20to%20order%20a%20custom%20gift%20hamper."
+                href="https://wa.me/9368785399?text=Hi!%20I%20want%20to%20order%20a%20custom%20gift%20hamper."
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-stone-900 font-semibold rounded-xl hover:bg-stone-100 transition-all shadow-lg"
               >

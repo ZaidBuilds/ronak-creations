@@ -96,7 +96,7 @@ export default function ProductsPage() {
                       <div className="flex items-center justify-between mt-3">
                         <span className="text-base md:text-lg font-bold text-rose">{p.price}</span>
                         <a
-                          href={`https://wa.me/917988174542?text=Hi!%20I%20want%20to%20buy%20${encodeURIComponent(p.name)}`}
+                          href={`https://wa.me/9368785399?text=Hi!%20I%20want%20to%20buy%20${encodeURIComponent(p.name)}`}
                           target="_blank" rel="noopener noreferrer"
                           className="text-xs px-3 py-1.5 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium"
                         >
