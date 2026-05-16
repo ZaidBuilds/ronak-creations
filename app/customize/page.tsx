@@ -1,102 +1,125 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 const ideas = [
-  { title: "Birthday Hampers", desc: "Personalized gifts, chocolates, stationery, and more in a custom hamper.", icon: "\uD83C\uDF82", color: "from-pink-400 to-pink-600" },
-  { title: "Anniversary Hampers", desc: "Elegant combos with customized mugs, photo frames, and keepsakes.", icon: "\uD83D\uDC9D", color: "from-red-400 to-red-600" },
-  { title: "Festival Special", desc: "Diwali, Rakhi, Holi \u2014 custom hampers for every Indian festival.", icon: "\uD83C\uDF89", color: "from-amber-400 to-amber-600" },
-  { title: "Corporate Gifting", desc: "Branded stationery sets, custom notebooks, pen sets for your team.", icon: "\uD83D\uDCBC", color: "from-blue-400 to-blue-600" },
-  { title: "Return Gifts", desc: "Party favor hampers for weddings, birthdays, or events.", icon: "\uD83C\uDF81", color: "from-purple-400 to-purple-600" },
-  { title: "Just Because", desc: "Surprise someone special with a curated hamper made with love.", icon: "\u2728", color: "from-teal-400 to-teal-600" },
+  { title: "Birthday Hampers", desc: "Personalized gifts, chocolates, stationery, and decor items in a custom hamper.", icon: "\uD83C\uDF82", color: "from-pink-400 to-rose" },
+  { title: "Anniversary Hampers", desc: "Elegant combos with customized mugs, photo frames, candles, and keepsakes.", icon: "\uD83D\uDC9D", color: "from-red-400 to-rose" },
+  { title: "Festival Special", desc: "Diwali, Rakhi, Holi, Eid — custom hampers for every Indian festival.", icon: "\uD83C\uDF89", color: "from-amber-soft to-amber-deep" },
+  { title: "Corporate Gifting", desc: "Branded stationery sets, custom notebooks, pen sets, and sipper bottles for your team.", icon: "\uD83D\uDCBC", color: "from-blue-400 to-blue-600" },
+  { title: "Return Gifts", desc: "Party favor hampers for weddings, birthdays, and events. Budget-friendly options available.", icon: "\uD83C\uDF81", color: "from-purple-400 to-purple-600" },
+  { title: "Baby Shower / Newborn", desc: "Baby hampers with essentials, soft toys, and cosmetic bouquets. Adorable gifting option.", icon: "\uD83D\uDC76", color: "from-teal-400 to-teal-600" },
 ];
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
-
-const cardItem = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 },
-};
 
 export default function CustomizePage() {
   return (
     <div>
-      <section className="relative bg-gradient-to-br from-secondary via-secondary-light to-secondary text-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 md:py-28">
-          <ScrollReveal>
-            <span className="text-accent text-sm font-semibold tracking-widest uppercase">Make It Personal</span>
+      <section className="relative bg-gradient-to-br from-amber-soft via-amber-deep to-stone-800 text-white overflow-hidden py-20 md:py-28">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-rose/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-soft/20 rounded-full blur-3xl" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <span className="text-white/70 text-sm font-semibold tracking-widest uppercase">Make It Personal</span>
             <h1 className="font-serif text-4xl md:text-5xl font-bold mt-2 mb-4">Custom Gift Hampers</h1>
-            <p className="text-lg max-w-2xl text-dark/70 leading-relaxed">
-              Tell us the occasion, and we&apos;ll create a personalized gift hamper that your loved ones will never forget.
+            <p className="text-lg text-white/70 max-w-2xl leading-relaxed">
+              Tell us the occasion and your budget — we&apos;ll create a personalized gift hamper that your loved ones will never forget.
             </p>
-          </ScrollReveal>
+          </motion.div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <ScrollReveal>
-          <SectionHeading
-            title="Ideas for Every Occasion"
-            subtitle="Get inspired \u2014 here are some popular hamper ideas our customers love."
-          />
-        </ScrollReveal>
+      <section className="max-w-6xl mx-auto px-4 py-16 md:py-20">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+          <h2 className="font-serif text-3xl font-bold text-stone-900">Ideas for Every Occasion</h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-rose to-gold rounded-full mt-3" />
+          <p className="text-stone-500 mt-3 max-w-xl text-sm">Get inspired — here are some popular hamper ideas our customers love.</p>
+        </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {ideas.map(({ title, desc, icon, color }) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {ideas.map(({ title, desc, icon, color }, i) => (
             <motion.div
               key={title}
-              variants={cardItem}
-              whileHover={{ y: -6 }}
-              className="bg-white border border-border rounded-2xl p-7 hover:shadow-xl hover:border-primary/10 transition-all group cursor-default"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -4 }}
+              className="bg-white border border-stone-200 rounded-2xl p-6 hover:shadow-lg hover:border-rose/10 transition-all group"
             >
-              <div className={`w-14 h-14 bg-gradient-to-br ${color} rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+              <div className={`w-12 h-12 bg-gradient-to-br ${color} rounded-xl flex items-center justify-center text-xl mb-4 shadow-md group-hover:scale-110 transition-transform`}>
                 {icon}
               </div>
-              <h3 className="font-serif text-xl font-bold text-dark mb-2">{title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{desc}</p>
+              <h3 className="font-serif text-lg font-bold text-stone-900 mb-2">{title}</h3>
+              <p className="text-sm text-stone-400 leading-relaxed">{desc}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
-      <section className="relative bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      {/* How it works */}
+      <section className="bg-white border-y border-stone-200">
+        <div className="max-w-6xl mx-auto px-4 py-16 md:py-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="font-serif text-3xl font-bold text-stone-900">How It Works</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-rose to-gold rounded-full mx-auto mt-3" />
+          </motion.div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 text-center">
-          <ScrollReveal>
-            <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
-              <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-            </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Ready to Order?</h2>
-            <p className="text-white/70 max-w-lg mx-auto mb-8 leading-relaxed">
-              Tell us your requirements \u2014 budget, occasion, items \u2014 and we&apos;ll design the perfect hamper for you.
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { step: "01", title: "Tell Us the Occasion", desc: "Birthday, anniversary, festival, or just because — let us know." },
+              { step: "02", title: "Share Your Budget", desc: "We work with all budgets. Tell us your range and we'll suggest options." },
+              { step: "03", title: "Pick Your Items", desc: "Choose from our catalog or let us curate a surprise hamper for you." },
+              { step: "04", title: "We Deliver", desc: "We package it beautifully and deliver it to your doorstep in Saharanpur." },
+            ].map((s, i) => (
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center"
+              >
+                <span className="text-4xl font-bold text-rose/20 font-serif">{s.step}</span>
+                <h3 className="font-semibold text-stone-800 mt-2 mb-1">{s.title}</h3>
+                <p className="text-xs text-stone-400 leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-6xl mx-auto px-4 py-16 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative bg-gradient-to-br from-rose to-stone-900 rounded-3xl p-10 md:p-14 text-center text-white overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-amber-soft/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl" />
+          <div className="relative z-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-3">Ready to Order?</h2>
+            <p className="text-white/70 max-w-md mx-auto mb-8 leading-relaxed">
+              Tell us your requirements — budget, occasion, and preferred items — and we&apos;ll design the perfect hamper for you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="secondary" href="https://wa.me/917988174542?text=Hi!%20I%20want%20to%20order%20a%20custom%20gift%20hamper.">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
-                Order on WhatsApp
-              </Button>
-              <Button variant="outline" href="/contact" className="!border-white/20 !text-white hover:!bg-white/10">
-                Contact Us
-              </Button>
+              <a
+                href="https://wa.me/917988174542?text=Hi!%20I%20want%20to%20order%20a%20custom%20gift%20hamper."
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-stone-900 font-semibold rounded-xl hover:bg-stone-100 transition-all shadow-lg"
+              >
+                Order on WhatsApp <span>&rarr;</span>
+              </a>
+              <Link href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-all"
+              >
+                Visit Our Store
+              </Link>
             </div>
-          </ScrollReveal>
-        </div>
+          </div>
+        </motion.div>
       </section>
     </div>
   );

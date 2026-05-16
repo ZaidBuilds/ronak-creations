@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { Mesh, Group } from "three";
-import { useFrame, useThree } from "@react-three/fiber";
-import { Float, Text3D, Center } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { Float } from "@react-three/drei";
 
 function FloatingCube({ position, color, speed = 0.5, delay = 0 }: { position: [number, number, number]; color: string; speed?: number; delay?: number }) {
   const ref = useRef<Mesh>(null);
@@ -11,76 +11,48 @@ function FloatingCube({ position, color, speed = 0.5, delay = 0 }: { position: [
 
   useFrame(({ clock }) => {
     if (ref.current) {
-      ref.current.position.y = startY + Math.sin(clock.elapsedTime * speed + delay) * 0.3;
-      ref.current.rotation.x += 0.005;
-      ref.current.rotation.y += 0.01;
+      const t = clock.getElapsedTime() * speed + delay;
+      ref.current.position.y = startY + Math.sin(t) * 0.3;
+      ref.current.rotation.x += 0.01;
+      ref.current.rotation.y += 0.02;
     }
   });
 
   return (
     <mesh ref={ref} position={position}>
-      <boxGeometry args={[0.3, 0.3, 0.3]} />
-      <meshStandardMaterial color={color} roughness={0.3} metalness={0.1} />
+      <boxGeometry args={[0.15, 0.15, 0.15]} />
+      <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.2} roughness={0.3} metalness={0.2} />
     </mesh>
   );
 }
 
-function FloatingRing() {
-  const ref = useRef<Group>(null);
+export default function EnhancedScene() {
+  const groupRef = useRef<Group>(null);
 
   useFrame((_, delta) => {
-    if (ref.current) ref.current.rotation.y += delta * 0.3;
-  });
-
-  const particles = Array.from({ length: 16 }, (_, i) => {
-    const angle = (i / 16) * Math.PI * 2;
-    return { x: Math.cos(angle) * 1.8, z: Math.sin(angle) * 1.8 };
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.15;
+    }
   });
 
   return (
-    <group ref={ref} position={[0, -0.5, 0]}>
-      {particles.map((p, i) => (
-        <mesh key={i} position={[p.x, 0, p.z]}>
-          <sphereGeometry args={[0.04, 8, 8]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={0.3} />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-export default function EnhancedScene() {
-  return (
-    <group>
-      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.4}>
-        <mesh position={[0, 0.2, 0]}>
-          <boxGeometry args={[1.2, 1, 1.2]} />
-          <meshStandardMaterial color="#7c3aed" roughness={0.3} metalness={0.1} />
-        </mesh>
-        <mesh position={[0, 0.2, 0]}>
-          <boxGeometry args={[1.3, 0.08, 0.08]} />
-          <meshStandardMaterial color="#fbbf24" roughness={0.5} metalness={0.3} />
-        </mesh>
-        <mesh position={[0, 0.2, 0]} rotation={[0, 0, Math.PI / 2]}>
-          <boxGeometry args={[1.3, 0.08, 0.08]} />
-          <meshStandardMaterial color="#fbbf24" roughness={0.5} metalness={0.3} />
-        </mesh>
-        <mesh position={[0, 0.75, 0]}>
-          <boxGeometry args={[1.25, 0.12, 1.25]} />
-          <meshStandardMaterial color="#8b5cf6" roughness={0.3} metalness={0.1} />
-        </mesh>
-        <mesh position={[0, 0.85, 0]}>
-          <sphereGeometry args={[0.1, 8, 8]} />
-          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={0.5} />
+    <group ref={groupRef}>
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
+        <mesh position={[0, 0, 0]}>
+          <dodecahedronGeometry args={[0.5, 0]} />
+          <meshStandardMaterial color="#e11d48" emissive="#e11d48" emissiveIntensity={0.15} roughness={0.2} metalness={0.8} />
         </mesh>
       </Float>
 
-      <FloatingCube position={[-2.2, 0.8, -1]} color="#ec4899" speed={0.7} delay={0} />
-      <FloatingCube position={[2.2, 0.3, -1.2]} color="#f59e0b" speed={0.6} delay={1} />
-      <FloatingCube position={[-1.8, -0.5, -1.5]} color="#a78bfa" speed={0.8} delay={2} />
-      <FloatingCube position={[1.8, -0.2, -1.8]} color="#f472b6" speed={0.5} delay={0.5} />
+      <FloatingCube position={[-1.2, 0.4, -0.5]} color="#f59e0b" speed={0.7} delay={0} />
+      <FloatingCube position={[1.3, -0.3, -0.8]} color="#fbbf24" speed={0.5} delay={1} />
+      <FloatingCube position={[-0.8, -0.6, 0.5]} color="#fb7185" speed={0.9} delay={0.5} />
+      <FloatingCube position={[1, 0.5, 0.3]} color="#a78bfa" speed={0.6} delay={1.5} />
 
-      <FloatingRing />
+      <mesh position={[0, -1.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <ringGeometry args={[1.8, 2, 64]} />
+        <meshStandardMaterial color="#f59e0b" emissive="#f59e0b" emissiveIntensity={0.05} transparent opacity={0.15} side={2} />
+      </mesh>
     </group>
   );
 }
