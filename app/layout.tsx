@@ -13,7 +13,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "Ronak Creations | Gift Shop in Numaish Camp, Saharanpur",
   description:
-    "Ronak Creations — fancy stationery, customized gift hampers, designer keychains, sipper bottles, and more. Visit us in Numaish Camp, Saharanpur.",
+    "Fancy stationery, customized gift hampers, designer keychains, sipper bottles, and more — Ronak Creations in Numaish Camp, Saharanpur.",
   openGraph: {
     title: "Ronak Creations | Gift Shop in Saharanpur",
     description:
@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

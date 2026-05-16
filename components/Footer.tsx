@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+const quickLinks = [
+  { href: "/products", label: "Products" },
+  { href: "/customize", label: "Custom Gift Hampers" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-foreground text-white mt-auto">
@@ -11,30 +18,29 @@ export default function Footer() {
               Your one-stop shop for fancy stationery, customized gift hampers, and unique gift items in Saharanpur.
             </p>
           </div>
+
           <div>
             <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
             <div className="flex flex-col gap-2">
-              <Link href="/products" className="text-sm text-white/70 hover:text-white transition-colors">
-                Products
-              </Link>
-              <Link href="/customize" className="text-sm text-white/70 hover:text-white transition-colors">
-                Custom Gift Hampers
-              </Link>
-              <Link href="/about" className="text-sm text-white/70 hover:text-white transition-colors">
-                About Us
-              </Link>
-              <Link href="/contact" className="text-sm text-white/70 hover:text-white transition-colors">
-                Contact
-              </Link>
+              {quickLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
+
           <div>
             <h3 className="text-lg font-semibold mb-3">Visit Us</h3>
-            <p className="text-sm text-white/70 leading-relaxed">
+            <address className="text-sm text-white/70 leading-relaxed not-italic">
               Shakti Nagar, Near Panchmukhi Hanuman Mandir
               <br />
               Numaish Camp, Saharanpur, UP
-            </p>
+            </address>
             <a
               href="https://wa.me/917988174542"
               target="_blank"
@@ -45,6 +51,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
+
         <div className="border-t border-white/10 mt-8 pt-6 text-center text-sm text-white/50">
           &copy; {new Date().getFullYear()} Ronak Creations. All rights reserved.
         </div>

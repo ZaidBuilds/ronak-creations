@@ -1,13 +1,11 @@
 import Image from "next/image";
+import type { Product } from "@/types/product";
 
-interface ProductCardProps {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
+const WHATSAPP_NUMBER = "917988174542";
 
-export default function ProductCard({ name, description, price, image }: ProductCardProps) {
+export default function ProductCard({ name, description, price, image }: Product) {
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%20want%20to%20inquire%20about%20${encodeURIComponent(name)}`;
+
   return (
     <div className="bg-white rounded-xl border border-border overflow-hidden hover:shadow-md transition-shadow">
       <div className="aspect-square relative bg-stone-50 flex items-center justify-center p-8">
@@ -25,12 +23,12 @@ export default function ProductCard({ name, description, price, image }: Product
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold text-primary">{price}</span>
           <a
-            href={`https://wa.me/917988174542?text=Hi!%20I%20want%20to%20inquire%20about%20${encodeURIComponent(name)}`}
+            href={waLink}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-accent font-medium hover:text-accent-light transition-colors"
           >
-            Inquire on WhatsApp →
+            Inquire on WhatsApp &rarr;
           </a>
         </div>
       </div>

@@ -30,10 +30,10 @@ export default function CustomizePage() {
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-foreground mb-8">Ideas for Every Occasion</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ideas.map((idea) => (
-            <div key={idea.title} className="bg-white border border-border rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h3 className="font-semibold text-lg mb-2">{idea.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{idea.desc}</p>
+          {ideas.map(({ title, desc }) => (
+            <div key={title} className="bg-white border border-border rounded-xl p-6 hover:shadow-md transition-shadow">
+              <h3 className="font-semibold text-lg mb-2">{title}</h3>
+              <p className="text-sm text-muted leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>
